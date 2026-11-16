@@ -90,3 +90,6 @@ class DocumentPortalException(Exception):
             f"line={self.lineno}, "
             f"message={self.error_message!r})"
         )
+
+# Backward compatibility for code that used the original class name.
+DocumentException = DocumentPortalException
