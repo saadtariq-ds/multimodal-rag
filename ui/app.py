@@ -36,10 +36,10 @@ if str(PROJECT_ROOT) not in sys.path:
 
 load_dotenv(PROJECT_ROOT / ".env")
 
-from prompt_library.prompt import CHAT_SUGGESTED_PROMPTS
+from prompts.prompt import CHAT_SUGGESTED_PROMPTS
 from src.parsing import ComplexPDFParser
-from src.ingestion import MultimodalDocumentIngestion
-from src.generation import MultimodalRAGGenerator
+from src.ingestion import MultiModalDocumentIngestion
+from src.generation import MultiModalRAGGenerator
 
 
 DATA_DIR = PROJECT_ROOT / "data"
@@ -205,8 +205,8 @@ def get_generator(
     collection_name: str,
     model_name: str,
     max_images: int,
-) -> MultimodalRAGGenerator:
-    return MultimodalRAGGenerator(
+) -> MultiModalRAGGenerator:
+    return MultiModalRAGGenerator(
         collection_name=collection_name,
         model_name=model_name,
         max_images=max_images,
@@ -1820,7 +1820,7 @@ if (
                     expanded=True,
                 ) as status:
                     ingestion = (
-                        MultimodalDocumentIngestion(
+                        MultiModalDocumentIngestion(
                             collection_name=(
                                 collection_name
                             ),
